@@ -1,0 +1,255 @@
+{
+  "app-sidebar": {
+    "label": {
+      "closed-session": "Cerrar Sección",
+      "info-user": "Información del usuario",
+      "menu-link-sub-Manage": "Gestionar",
+      "menu-link-sub-Manage-sub-adm": "Gestionar ADM",
+      "menu-link-sub-Manage-sub-user": "Gestionar Usuario",
+      "menu-link-sub-Manage-sub-card": "Gestionar Carros",
+      "menu-link-sub-Manage-sub-dayrental": "Gestionar Dias",
+      "menu-link-sub-Manage-sub-rental": "Gestionar Rentas",
+      "menu-link-sub-Manage-sub-price": "Gestionar Compras",
+      "menu-link-sub-Manage-sub-1": "Adicionar",
+      "menu-link-sub-Manage-sub-2": "Listado"
+    }
+  },
+  "app-nav": {
+    "icon-name": {
+      "tab-sidebar": "Operar con barra lateral",
+      "tab-themes": "Temas",
+      "tab-block-seccion": "Bloqueo de Sección"
+    }
+  },
+  "app-content": {
+    "label": {
+      "loading-data": "Cargando Datos",
+      "operation": "Operación",
+      "edit-date": "Editar Datos",
+      "show-date": "Mostrar Datos",
+      "delete-date": "Eliminar Datos",
+      "deletes-date": "Eliminar Todo",
+      "edit-rol": "Editar Rol",
+      "edit-user": "Editar Usuario",
+      "date": "Datos",
+      "date-artist": "Datos de Artista",
+      "date-album": "Datos del Album",
+      "person": "Personal",
+      "roles-permissions": "Roles y Permisos",
+      "contacts": "Contactos",
+      "status": "Estado",
+      "created": "Creado",
+      "gender": "Generos",
+      "update": "Actualizado",
+      "rol": "Rol",
+      "permissions": "Permisos",
+      "input-search": "Escribir parametro de busqueda"
+    }
+  },
+  "language": {
+    "change-language": "Cambio de idioma a: {{icon}} {{language}}.",
+    "use-language": "Idioma en uso: {{icon}} {{language}}.",
+    "error-change-language": "Error al cambio de idioma a: {{icon}} {{language}}."
+  },
+  "notification": {
+    "success": "Sactifactorio",
+    "error": "Error",
+    "warning": "Advertencia",
+    "info": "Informacion",
+    "operation-success": "Operación Sactifactoria",
+    "operation-error": "Oh!!!,A ocurrido algun error",
+    "tab-themes": "Cambio de tema a {{theme}}",
+    "tab-block-seccion": "Sección cerrada",
+    "tab-sidebar-open": "Barra lateral expandida",
+    "tab-sidebar-closed": "Barra lateral reducida",
+    "delete-confirm": "Esta seguro de eliminar este usuario?",
+    "deletes-confirm": "Esta seguro de eliminar todos los usuarios?",
+    "delete-confirm-poll": "Esta segurode eliminar este questionario?",
+    "deletes-confirm-poll": "Esta seguro de eliminar todos los questionarios?",
+    "delete-confirm-album": "Esta seguro de eliminar este album?",
+    "deletes-confirm-album": "Esta seguro de eliminar todos los albunes?",
+    "delete-confirm-event": "Esta seguro de eliminar este evento?",
+    "deletes-confirm-event": "Esta seguro de eliminar todos los eventos?",
+    "delete-confirm-gender": "Esta seguro de eliminar este genero?",
+    "deletes-confirm-gener": "Esta seguro de eliminar todos los generos?",
+    "delete-confirm-music": "Esta seguro de eliminar este tema?",
+    "deletes-confirm-music": "Esta seguro de eliminar todos los temas?",
+    "delete-confirm-artist": "Esta seguro de eliminar este artista?",
+    "deletes-confirm-artist": "Esta seguro de eliminar todos los artistas?"
+  },
+  "login": {
+    "message-invalid-credentials": "El nombre de usuario o la contraseña son incorrectos.",
+    "message-valid-credentials": "Bienvenido {{user}}, registro sactifactorio.",
+    "message-invalid-refresh-token": "Sección Cerrarada",
+    "welcome": "Bienvenido",
+    "remember-me": "Recordarme",
+    "forgot-password": "Has olvidado tú contraseña?",
+    "sign-in-with": "Loguearse con",
+    "signup": "Registrarse",
+    "signup-user": "Usuario",
+    "signup-adm": "ADM",
+    "login": "Loguearse"
+  },
+  "validation": {
+    "email": {
+      "label": "Correo",
+      "placeholder": "Entre su correo",
+      "required": "Por favor escriba su correo electrónico",
+      "wrong-format": "El formato del correo es incorrecto",
+      "present-BD": "El correo electrónico se encuentra en la Base de Datos"
+    },
+    "nameArtist": {
+      "label": "Nombre Artistico",
+      "placeholder": "Entre el nombre del artistico",
+      "required": "Por favor escriba su nombre artististico!.",
+      "invalid": "Nombre artistico invalido, tiene que empezar [a-z] luego puede contener [0-9],[a-z] ó _",
+      "invalid_min": "Nombre artistico invalido, tiene que contener mas de 3 caracteres",
+      "invalid_max": "Nombre artistico invalido, tiene que contener menos de 70 caracteres",
+      "present-BD": "Nombre artistico se encuentra en la Base de Datos"
+    },
+    "user": {
+      "label": "Nombre Usuario",
+      "placeholder": "Entre su nombre de ususario",
+      "required": "Por favor escriba su nombre de usuario!.",
+      "invalid": "Nombre de usuario invalido, tiene que empezar [a-z] luego puede contener [0-9],[a-z] ó _",
+      "invalid_min": "Nombre de usuario invalido, tiene que contener mas de 3 caracteres",
+      "invalid_max": "Nombre de usuario invalido, tiene que contener menos de 70 caracteres",
+      "present-BD": "Nombre de usuario se encuentra en la Base de Datos"
+    },
+    "password": {
+      "label": "Contraseña",
+      "label-old": "Contraseña actual",
+      "label-new": "Contraseña nueva",
+      "label-rep": "Repita la contraseña",
+      "placeholder": "Entre su contraseña",
+      "required": "Por favor escriba su contraseña",
+      "twice": "La contraseña ingresada no coencide.",
+      "strength.msg": "Ingrese al menos 6 caracteres y no use contraseñas que sean fáciles de adivinar",
+      "strength.strong": "Fuerza: fuerte",
+      "strength.medium": "Fuerza: medio",
+      "strength.short": "Fuerza: demaciado corta",
+      "confirm-password.required": "Por favor confirme su contraseña",
+      "confirm-password.notequeal": "La contraseña no coencide con la nueva contraseña"
+    },
+    "name": {
+      "label": "Nombre",
+      "placeholder": "Entre su nombre",
+      "required": "Por favor entre su nombre!",
+      "invalid": "Nombre es invalido, tiene que empezar [A-ZÁÉÍÓÚ], luego tiene que contener [a-zñáéíóú]",
+      "invalid_min": "Nombre invalido, tiene que contener mas de 3 caracteres",
+      "invalid_max": "Nombre invalido, tiene que contener menos de 70 caracteres"
+    },
+    "nametwo": {
+      "label": "Segundo Nombre",
+      "placeholder": "Entre su segundo nombre",
+      "invalid": "Segundo Nombre es invalido, tiene que empezar [A-ZÁÉÍÓÚ], luego tiene que contener [a-zñáéíóú]",
+      "invalid_min": "Segundo Nombre invalido, tiene que contener mas de 3 caracteres",
+      "invalid_max": "Segundo Nombre invalido, tiene que contener menos de 30 caracteres"
+    },
+    "lastnameone": {
+      "label": "Primer Apellido",
+      "placeholder": "Entre su primer apellido",
+      "required": "Por favor entre su primer apellido!",
+      "invalid": "Primer apellido es invalido, tiene que empezar [A-ZÁÉÍÓÚ], luego tiene que contener [a-zñáéíóú]",
+      "invalid_min": "Primer apellido invalido, tiene que contener mas de 3 caracteres",
+      "invalid_max": "Primer apellido invalido, tiene que contener menos de 70 caracteres"
+    },
+    "lastnametwo": {
+      "label": "Segundo Apellido",
+      "placeholder": "Entre su segundo apellido",
+      "required": "Por favor entre su segundo apellido!",
+      "invalid": "Segundo apellido es invalido, tiene que empezar [A-ZÁÉÍÓÚ], luego tiene que contener [a-zñáéíóú]",
+      "invalid_min": "Segundo apellido invalido, tiene que contener mas de 3 caracteres",
+      "invalid_max": "Segundo apellido invalido, tiene que contener menos de 70 caracteres"
+    },
+    "rol": {
+      "label": "Selecionar Rol",
+      "placeholder": "Entre un rol",
+      "required": "Por favor entre un rol!"
+    },
+    "permissions": {
+      "label": "Selecionar Permisos",
+      "placeholder": "Entre los permisos"
+    },
+    "add-date": {
+      "label": "Fecha de Creada"
+    },
+    "question": {
+      "label": "Preguntas",
+      "placeholder": "Entre una pregunta"
+    },
+    "old": {
+      "label": "Edad",
+      "placeholder": "Entre una edad",
+      "required": "Por favor entre la edad!"
+    },
+    "type": {
+      "label": "Tipo",
+      "placeholder": "Selecione un genero",
+      "required": "Por favor entre un genero!"
+    },
+    "allcard": {
+      "label": "Total de Carros",
+      "placeholder": "Selecione un total de carros",
+      "required": "Por favor entre un Total!"
+    },
+    "rental": {
+      "label": "Renta",
+      "placeholder": "Selecione un Renta",
+      "required": "Por favor entre un Renta!"
+    },
+    "price": {
+      "label": "Precio",
+      "placeholder": "Selecione un Precio",
+      "required": "Por favor entre un Precio!"
+    },
+    "music": {
+      "label": "Music",
+      "name": "Nombre",
+      "size": "Tamano",
+      "type": "Formato",
+      "uid": "UID"
+    },
+    "title": {
+      "label": "Titulo",
+      "placeholder": "Entre un Titulo",
+      "required": "Por favor entre el Titulo!"
+    },
+    "locationEventArtist": {
+      "label": "Lugar",
+      "placeholder": "Entre Lugar",
+      "required": "Por favor entre el lugar!"
+    },
+    "description": {
+      "label": "Descripcion",
+      "placeholder": "Entre una descripcion",
+      "required": "Por favor entre una descripcion!",
+      "invalid_min": "Descricion invalido, tiene que contener mas de 3 caracteres",
+      "invalid_max": "Descricion invalido, tiene que contener menos de 70 caracteres"
+    },
+    "descriptionAlbumArtist": {
+      "label": "Descripcion",
+      "placeholder": "Entre una descripcion",
+      "required": "Por favor entre una descripcion!"
+    },
+    "interpreter": {
+      "label": "Interprete",
+      "placeholder": "Es interprete?"
+    }
+  },
+  "button": {
+    "send": "Enviar",
+    "cancel": "Cancelar",
+    "ok": "Aceptar",
+    "search": "Buscar",
+    "upload": "Subir",
+    "reset": "Borrar",
+    "add-input": "Adicionar input"
+  },
+  "card": {
+    "title-info": "Información",
+    "title-delete": "!Atención!",
+    "title-edit": "Editar Datos",
+    "title-edit-password": "Editar Contraseña"
+  }
+}

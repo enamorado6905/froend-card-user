@@ -1,0 +1,99 @@
+<div nz-row class="pt-lg">
+  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+    <nz-card class="card-list" [nzBodyStyle]="{ padding: 0 }">
+      <div class="card-body">
+        <nz-table
+          class="table-list"
+          [nzData]="listEntitis.list"
+          [nzLoading]="initLoading"
+          [nzScroll]="{x:'auto',y:'60vh'}"
+          [nzShowPagination]="false"
+          nzTableLayout="fixed"
+        >
+          <thead>
+            <tr>
+              <th
+                [nzSelections]="listEntitis.listOfSelection"
+                [nzChecked]="listEntitis.checked"
+                [nzIndeterminate]="listEntitis.indeterminate"
+                (nzCheckedChange)="listEntitis.onAllChecked($event)"
+              ></th>
+              <th nzCustomFilter>
+                {{'validation.name.label' | translate}}
+                <nz-filter-trigger
+                  [(nzVisible)]="visible"
+                  [nzActive]="searchValue.length > 0"
+                  [nzDropdownMenu]="menu"
+                >
+                  <i nz-icon nzType="search"></i>
+                </nz-filter-trigger>
+              </th>
+              <th>{{'validation.add-date.label' | translate}}</th>
+              <th>{{'app-content.label.operation' | translate}}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of listEntitis.list">
+              <td
+                [nzChecked]="listEntitis.setOfCheckedId.has(item._id!)"
+                (nzCheckedChange)="listEntitis.onItemChecked(item._id!, $event)"
+              ></td>
+              <td class="img-names">
+                <app-avatar [url]="item?.idimgData!"></app-avatar>
+                <p>
+                  {{ item?.name! }} {{item?.nametwo!}} {{item?.lastnameone}}
+                  {{item?.lastnametwo!}}
+                </p>
+              </td>
+              <td>{{ item?.createdAt! |date }}</td>
+              <td>
+                <app-operation
+                  [size]="listEntitis.setOfCheckedId.size"
+                  (emitOpenShow)="comuUser.openShowDate(item?._id!)"
+                  (emitOpenEdit)="comuUser.openEditDate(item?._id!)"
+                  (emitOpenDelete)="comuUser.openDeleteDate(item?._id!)"
+                  (emitOpenDeletes)="comuUser.openDeletesDate()"
+                ></app-operation>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <div class="ant-table-filter-dropdown">
+            <div class="search-item-box">
+              <input
+                class="input-30"
+                type="search"
+                nz-input
+                [placeholder]="'app-content.label.input-search' | translate"
+                [value]="searchValue"
+                (change)="changeValueSearchName($event)"
+              />
+              <div class="box-button">
+                <button
+                  nz-button
+                  nzSize="small"
+                  nzType="primary"
+                  (click)="search()"
+                  class="search-button"
+                >
+                  {{'button.search' | translate}}
+                </button>
+                <button nz-button nzSize="small" (click)="reset()">
+                  {{'button.reset' | translate}}
+                </button>
+              </div>
+            </div>
+          </div>
+        </nz-dropdown-menu>
+        <div class="pagination-left">
+          <app-pagination
+            [total]="allUser"
+            (maxItem)="changeSizeItemPagination($event)"
+            (itemPage)="changeItemPagination($event)"
+          ></app-pagination>
+        </div>
+      </div>
+    </nz-card>
+  </div>
+</div>

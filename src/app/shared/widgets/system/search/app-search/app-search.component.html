@@ -1,0 +1,11 @@
+    <div id="tigger-item" class="trigger-item">
+      <i nz-icon nzType="search" nzTheme="outline"></i>
+    </div>
+    <div id="input-item" class="input-search">
+      <nz-input-group [nzSuffix]="prefixIconSearch">
+        <input type="text" nz-input placeholder="input search text" />
+      </nz-input-group>
+      <ng-template #prefixIconSearch>
+        <i nz-icon nzType="search"></i>
+      </ng-template>
+    </div>

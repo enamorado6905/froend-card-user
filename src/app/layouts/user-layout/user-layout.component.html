@@ -1,0 +1,14 @@
+<nz-layout class="app-layout">
+  <nz-header class="app-header">
+    <app-navbar></app-navbar>
+  </nz-header>
+  <nz-layout class="app-sub-layout">
+    <nz-content class="app-content">
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+        <router-outlet name="drawer"></router-outlet>
+        <router-outlet name="modal"></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>

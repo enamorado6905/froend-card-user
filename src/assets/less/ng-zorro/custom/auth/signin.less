@@ -1,0 +1,70 @@
+.auth-content {
+  @media (max-width: 767px) {
+    .login {
+      margin: 20px auto;
+      width: max-content;
+    }
+  }
+  @media (min-width: 768px) {
+    .login {
+      margin: 20px auto;
+      width: 40em;
+      height: 30em;
+    }
+  }
+
+  .login-screen {
+    height: max-content;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  .app-title {
+    text-align: center;
+    color: #777;
+  }
+
+  .login-form {
+    text-align: center;
+
+    .login-form-item {
+      margin-bottom: 15px;
+      .login-form-control .login-input-group {
+        border-radius: @border-thick-two-30 !important;
+        height: 3em;
+      }
+
+      i {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .login-form-margin {
+    margin: 15px auto auto;
+  }
+
+  .login-button {
+    border: 2px solid transparent;
+    background: #3498db;
+    color: #ffffff;
+    text-decoration: none;
+    text-shadow: none;
+    border-radius: 15px;
+    box-shadow: none;
+    transition: 0.25s;
+    display: block;
+    width: 250px;
+    height: 50px;
+    margin: 15px auto auto;
+
+    i {
+      margin: auto;
+      font-size: 25px;
+    }
+
+    span {
+      margin: auto;
+      font-size: 25px;
+    }
+  }
+}

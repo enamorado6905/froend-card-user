@@ -1,0 +1,43 @@
+@import "base";
+.music-player {
+  .header {
+    height: 15px;
+    .date {
+      float: left;
+    }
+    .duration {
+      float: right;
+    }
+  }
+  .control {
+    width: 100%;
+    button {
+      height: 40px;
+      width: 40px;
+      margin-right: 5px;
+    }
+    .control-items {
+      width: max-content;
+    }
+  }
+  .list-music {
+    margin: 15px auto;
+  }
+  #avatar-album-list-avatar {
+    .content-image {
+      border-radius: @border-thick-two-20;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+  #avatar-album-list-large {
+    .content-image {
+      img {
+        width: 272px;
+        height: 200px;
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+@import "base";
+
+::ng-deep {
+  .register-password-cdk {
+
+    .success,
+    .info,
+    .warning,
+    .error {
+      transition: color 0.3s;
+    }
+
+    .success {
+      color: @success-states;
+    }
+
+    .info {
+      color: @info-states;
+    }
+
+    .warning {
+      color: @warning-states;
+    }
+
+    .error {
+      color: @danger-states;
+    }
+
+    .progress-pass>.progress {
+      .ant-progress-bg {
+        background-color: @warning-states;
+      }
+    }
+  }
+
+}

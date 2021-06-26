@@ -1,0 +1,145 @@
+@import "mixin";
+@import "base";
+
+.themeMixin( {
+    // :host {}
+
+    .sidebar-avatar {
+      // background: @primary-1;
+
+      h1 {
+        color: @text-color;
+      }
+    }
+
+    .app-header {
+      background: @layout-header-background;
+    }
+
+    .app-breadcrumb {
+      background: @layout-breadcrumb-background;
+    }
+
+    .login-screen {
+      background: @layout-content-auth-background;
+    }
+
+    .header-trigger {
+      color: @text-color;
+    }
+
+    .inner-content {
+      background: @layout-trigger-background;
+    }
+
+    .trigger:hover {
+      color: #1890ff;
+    }
+  }
+
+
+);
+
+:host {
+  display: flex;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app-layout {
+  height: 100vh;
+
+  .none {
+    display: none;
+  }
+
+  .app-sidebar {
+    overflow: hidden;
+    position: static;
+    margin: 0 10px 0 5px;
+    z-index: 10;
+    height: calc(100vh - 75px);
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+    border-radius: @border-thick-two-30 !important;
+    transition: all 0.7s;
+  }
+
+  .app-header {
+    position: static;
+    overflow: hidden;
+    width: 99.5%;
+    height: 50px;
+    line-height: normal;
+    z-index: 2;
+    margin: 5px auto 10px auto;
+    border-radius: @border-thick-two-30 !important;
+    box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+  }
+
+  .app-content-auth {
+    padding: 100px 5px;
+
+    .auth-content {
+      margin: auto;
+    }
+  }
+
+  .app-content {
+    height: 100%;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    .app-breadcrumb {
+      border-radius: @border-radius !important;
+      height: 40px;
+    }
+
+    .inner-content {
+      border-radius: @border-radius !important;
+      margin-top: 10px;
+      background: transparent;
+      // height: max-content;
+    }
+
+    .app-footer {
+      margin: 0 0 15px 0;
+      text-align: center;
+    }
+  }
+
+  // DEVICES WHTH DISPLAY <=767
+  @media (max-width: 767px) {
+    .app-sidebar {
+      display: none;
+    }
+
+    .app-content {
+      margin: auto 5px auto 5px;
+    }
+
+    .app-header {
+      padding: 0 10px;
+
+      .content-notmovil {
+        display: none;
+      }
+    }
+  }
+
+  // DEVICES WHTH DISPLAY >=768
+  @media (min-width: 768px) {
+    .app-header {
+      padding: 0 25px;
+
+      .content-movil {
+        display: none;
+      }
+    }
+
+    .app-content {
+      margin: auto;
+    }
+  }
+}

@@ -1,0 +1,263 @@
+{
+  "app-sidebar": {
+    "label": {
+      "closed-session": "Sign Off",
+      "info-user": "User Info",
+      "menu-link-sub-Manage": "Manage",
+      "menu-link-sub-Manage-sub-adm": "ADM Manage",
+      "menu-link-sub-Manage-sub-user": "User Manage",
+      "menu-link-sub-Manage-sub-card": "Card Manage",
+      "menu-link-sub-Manage-sub-dayrental": "Day Rental Manage",
+      "menu-link-sub-Manage-sub-rental": "Rental Manage",
+      "menu-link-sub-Manage-sub-price": "Price Manage",
+      "menu-link-sub-Manage-sub-artist-event": "Event Manage",
+      "menu-link-sub-Manage-sub-artist-music": "Music Manage",
+      "menu-link-sub-Manage-sub-poll": "Poll Manage",
+      "menu-link-sub-Manage-sub-poll-user": "User",
+      "menu-link-sub-Manage-sub-poll-artist": " Artist",
+      "menu-link-sub-Manage-sub-poll-useradm": "ADM",
+      "menu-link-sub-Manage-sub-1": "Add",
+      "menu-link-sub-Manage-sub-2": "List"
+    }
+  },
+  "app-nav": {
+    "icon-name": {
+      "tab-sidebar": "Trade with sidebar",
+      "tab-themes": "Themes",
+      "tab-block-seccion": "Block Seccion"
+    }
+  },
+  "app-content": {
+    "label": {
+      "loading-data": "Loading Data",
+      "operation": "Operation",
+      "edit-date": "Date Edit",
+      "show-date": "Date Show",
+      "delete-date": "Date Delete",
+      "deletes-date": "All Delete",
+      "edit-rol": "Rol Edit",
+      "edit-user": "User Edit",
+      "edit-permissions": "Permissions Edit",
+      "date": "Date",
+      "date-artist": "Artist Date",
+      "date-album": "Album Date",
+      "person": "Person",
+      "roles-permissions": "Roles and Permissions",
+      "contacts": "Contacts",
+      "status": "Status",
+      "created": "Craeted",
+      "gender": "Genders",
+      "update": "Update",
+      "rol": "Rol",
+      "permissions": "Permissions",
+      "input-search": "Writer search parameter "
+    }
+  },
+  "language": {
+    "change-language": "Change of language to: {{icon}} {{language}}.",
+    "use-language": "Language in use: {{icon}} {{language}}.",
+    "error-change-language": "Error change oflanguage to: {{icon}} {{language}}."
+  },
+  "notification": {
+    "success": "Success",
+    "error": "Error",
+    "warning": "Warning",
+    "info": "Info",
+    "operation-success": "Success Operation",
+    "operation-error": "Oh!!!,Some error has occurred",
+    "tab-themes": "Change themes to {{theme}}",
+    "tab-block-seccion": "Closed seccion",
+    "tab-sidebar-open": "Expanded sidebar",
+    "tab-sidebar-closed": "Reduced sidebar",
+    "delete-confirm": "Are you sure delete this user?",
+    "deletes-confirm": "Are you sure delete all user?",
+    "delete-confirm-poll": "Are you sure delete this poll?",
+    "deletes-confirm-poll": "Are you sure delete all poll?",
+    "delete-confirm-album": "Are you sure delete this album?",
+    "deletes-confirm-album": "Are you sure delete all albums?",
+    "delete-confirm-event": "Are you sure delete this event?",
+    "deletes-confirm-event": "Are you sure delete all event?",
+    "delete-confirm-gender": "Are you sure delete this gender?",
+    "deletes-confirm-gender": "Are you sure delete all gender?",
+    "delete-confirm-music": "Are you sure delete this track?",
+    "deletes-confirm-music": "Are you sure delete all tracks?",
+    "delete-confirm-artist": "Are you sure delete this artist?",
+    "deletes-confirm-artist": "Are you sure delete all artists?"
+  },
+  "login": {
+    "message-invalid-credentials": "Invalid username or password.",
+    "message-valid-credentials": "Welcome {{user}}, success login.",
+    "message-invalid-refresh-token": "Closed Seccion",
+    "welcome": "Welcome",
+    "remember-me": "Remember me",
+    "forgot-password": "Forgot your password?",
+    "sign-in-with": "Sign in with",
+    "signup": "Sign up",
+    "signup-user": "User",
+    "signup-adm": "ADM",
+    "login": "Login"
+  },
+  "validation": {
+    "email": {
+      "label": "Email",
+      "placeholder": "Enter your email",
+      "required": "Please enter your email!",
+      "wrong-format": "The email address is in the wrong format!",
+      "present-BD": "The email is present in Date Base"
+    },
+    "nameArtist": {
+      "label": "Artist Name",
+      "placeholder": "Enter your artist name",
+      "required": "Please enter your artist name!",
+      "invalid": "Invalid artist name,must have begin [a-z], then it have to contain [a-z],[0-9_]",
+      "invalid_min": "Artist name is invalid,must have more than 3 characters",
+      "invalid_max": "Artist name is invalid,must less more than 70 characters",
+      "present-BD": "Artist name is present in the Date Base"
+    },
+    "user": {
+      "label": "User Name",
+      "placeholder": "Enter your user name",
+      "required": "Please enter your user name!",
+      "invalid": "Invalid user name,must have begin [a-z], then it have to contain [a-z],[0-9_]",
+      "invalid_min": "User name is invalid,must have more than 3 characters",
+      "invalid_max": "User name is invalid,must less more than 70 characters",
+      "present-BD": "User name is present in the Date Base"
+    },
+    "password": {
+      "label": "Password",
+      "label-old": "Active password",
+      "label-new": "New password",
+      "label-rep": "Repeat password",
+      "placeholder": "Enter your password",
+      "required": "Please enter your password!",
+      "twice": "The passwords entered twice do not match!",
+      "strength.msg": "Please enter at least 6 characters and don't use passwords that are easy to guess.",
+      "strength.strong": "Strength: strong",
+      "strength.medium": "Strength: medium",
+      "strength.short": "Strength: too short",
+      "confirm-password.required": "Please confirm your password!",
+      "confirm-password.notequeal": "Password is not equelas a new password"
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter your name",
+      "required": "Please enter your name!",
+      "invalid": "Invalid name, must have begin [A-ZÁÉÍÓÚ], then it have to contain [a-zñáéíóú]",
+      "invalid_min": "Name is invalid,must have more than 3 characters",
+      "invalid_max": "Name is invalid,must less more than 70 characters"
+    },
+    "nametwo": {
+      "label": "Second name",
+      "placeholder": "Enter your sacond name",
+      "required": "Please enter your Second name!",
+      "invalid": "Invalid second name, must have begin [A-ZÁÉÍÓÚ], then it have to contain [a-zñáéíóú]",
+      "invalid_min": "Second name is invalid,must have more than 3 characters",
+      "invalid_max": "Second name is invalid,must less more than 70 characters"
+    },
+    "lastnameone": {
+      "label": "Surname",
+      "placeholder": "Enter your surname",
+      "required": "Please enter your Surname!",
+      "invalid": "Invalid surname, must have begin [A-ZÁÉÍÓÚ], then it have to contain [a-zñáéíóú]",
+      "invalid_min": "Surname is invalid,must have more than 3 characters",
+      "invalid_max": "Surname is invalid,must less more than 70 characters"
+    },
+    "lastnametwo": {
+      "label": "Second surname",
+      "placeholder": "Enter your second surname",
+      "required": "Please enter your second surname!",
+      "invalid": "Invalid second surname, must have begin [A-ZÁÉÍÓÚ], then it have to contain [a-zñáéíóú]",
+      "invalid_min": "Second surname is invalid,must have more than 3 characters",
+      "invalid_max": "Second surname is invalid,must less more than 70 characters"
+    },
+    "rol": {
+      "label": "Select Rol",
+      "placeholder": "Enter a rol",
+      "required": "Please enter a rol!"
+    },
+    "permissions": {
+      "label": "Select Permissions",
+      "placeholder": "Entre Permissions"
+    },
+    "add-date": {
+      "label": "Created Date"
+    },
+    "question": {
+      "label": "Taks",
+      "placeholder": "Enter a taks"
+    },
+    "old": {
+      "label": "Old",
+      "placeholder": "Enter a old",
+      "required": "Please enter a old!"
+    },
+    "type": {
+      "label": "Type",
+      "placeholder": "Enter a type",
+      "required": "Please enter a type!"
+    },
+    "allcard": {
+      "label": "All Card",
+      "placeholder": "Enter all card",
+      "required": "Please enter all card!"
+    },
+    "rental": {
+      "label": "Rental",
+      "placeholder": "Enter a rental",
+      "required": "Please enter a rental!"
+    },
+    "price": {
+      "label": "Price",
+      "placeholder": "Enter a price",
+      "required": "Please enter a price!"
+    },
+    "music": {
+      "label": "Music",
+      "name": "Name",
+      "size": "Size",
+      "type": "Type",
+      "uid": "UID"
+    },
+    "title": {
+      "label": "Title",
+      "placeholder": "Enter a title",
+      "required": "Please enter a title!"
+    },
+    "locationEventArtist": {
+      "label": "Location",
+      "placeholder": "Enter location",
+      "required": "Please enter location!"
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Enter a description",
+      "required": "Please enter a description!",
+      "invalid_min": "Invalid,must have more than 3 characters",
+      "invalid_max": "Invalid,must less more than 100 characters"
+    },
+    "descriptionAlbumArtist": {
+      "label": "Description",
+      "placeholder": "Enter a description",
+      "required": "Please enter a description!"
+    },
+    "interpreter": {
+      "label": "Interpreter",
+      "placeholder": "Is interpreter?"
+    }
+  },
+  "button": {
+    "send": "Send",
+    "cancel": "Cancel",
+    "ok": "OK",
+    "search": "Search",
+    "reset": "Reset",
+    "upload": "Upload",
+    "add-input": "Add input"
+  },
+  "card": {
+    "title-info": "Info",
+    "title-delete": "Atention!",
+    "title-edit": "Edit Date",
+    "title-edit-password": "Edit Password"
+  }
+}

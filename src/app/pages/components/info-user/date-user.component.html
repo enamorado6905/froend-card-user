@@ -1,0 +1,383 @@
+<div nz-row class="pt-lg">
+  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+    <nz-card class="card-user" [nzLoading]="loading_card_date">
+      <div class="date-user">
+        <div class="author-avatar">
+          <nz-upload
+            [nzCustomRequest]="handleUpload"
+            [nzBeforeUpload]="beforeUpload"
+            (nzChange)="handleChange($event)"
+            [nzOpenFileDialogOnClick]="!loading"
+            [nzShowUploadList]="false"
+          >
+            <figure class="content-avatar">
+              <app-avatar
+                id="avatar"
+                class="avatar"
+                [url]="user?.idimgData!"
+              ></app-avatar>
+              <nz-progress
+                class="progress"
+                *ngIf="loading"
+                nzType="circle"
+                [nzWidth]="140"
+                [nzPercent]="progress_photo"
+                [nzStrokeColor]="{ '0%': '#108ee9', '100%': '#87d068' }"
+              >
+              </nz-progress>
+              <div class="item-change">
+                <i nz-icon nzType="camera" nzTheme="outline"></i>
+              </div>
+            </figure>
+          </nz-upload>
+        </div>
+        <div class="author-names">
+          <h4 nz-typography>
+            {{user?.name!}} {{user?.nametwo!}} {{user?.lastnameone!}}
+            {{user?.lastnametwo!}}
+          </h4>
+        </div>
+      </div>
+      <form nz-form [formGroup]="date" (ngSubmit)="sendDate()">
+        <div nz-row [nzGutter]="24">
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+            <nz-form-label [nzNoColon]="true" nzRequired nzFor="name"
+              >{{'validation.name.label'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplName" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    type="text"
+                    nz-input
+                    formControlName="name"
+                    placeholder="{{'validation.name.placeholder'|translate}}"
+                    required
+                    autofocus
+                  />
+                </nz-input-group>
+                <ng-template #TplName let-control>
+                  <ng-container *ngIf="name?.errors?.required">
+                    {{'validation.name.required'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="name?.errors?.pattern">
+                    {{'validation.name.invalid'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="name?.errors?.minlength">
+                    {{'validation.name.invalid_min'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="name?.errors?.maxlength">
+                    {{'validation.name.invalid_max'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+            <nz-form-label [nzNoColon]="true" nzFor="nametwo"
+              >{{'validation.nametwo.label'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplNametwo" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    nz-input
+                    formControlName="nametwo"
+                    type="text"
+                    placeholder="{{'validation.nametwo.placeholder'|translate}}"
+                  />
+                </nz-input-group>
+                <ng-template #TplNametwo let-control>
+                  <ng-container *ngIf="nametwo?.errors?.pattern">
+                    {{'validation.nametwo.invalid'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="nametwo?.errors?.minlength">
+                    {{'validation.nametwo.invalid_min'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="nametwo?.errors?.maxlength">
+                    {{'validation.nametwo.invalid_max'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-row [nzGutter]="24">
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+            <nz-form-label [nzNoColon]="true" nzRequired nzFor="lastnameone">
+              {{'validation.lastnameone.label'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplLastnameone" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    type="text"
+                    nz-input
+                    formControlName="lastnameone"
+                    placeholder="{{'validation.lastnameone.placeholder'|translate}}"
+                    required
+                  />
+                </nz-input-group>
+                <ng-template #TplLastnameone let-control>
+                  <ng-container *ngIf="lastnameone?.errors?.required">
+                    {{'validation.lastnameone.required'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="lastnameone?.errors?.pattern">
+                    {{'validation.lastnameone.invalid'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="lastnameone?.errors?.minlength">
+                    {{'validation.lastnameone.invalid_min'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="lastnameone?.errors?.maxlength">
+                    {{'validation.lastnameone.invalid_max'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+            <nz-form-label nzRequired [nzNoColon]="true" nzFor="lastnametwo">
+              {{'validation.lastnametwo.label'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplLastnametwo" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    nz-input
+                    formControlName="lastnametwo"
+                    type="text"
+                    placeholder="{{'validation.lastnametwo.placeholder'|translate}}"
+                    required
+                  />
+                </nz-input-group>
+                <ng-template #TplLastnametwo let-control>
+                  <ng-container *ngIf="lastnametwo?.errors?.required">
+                    {{'validation.lastnametwo.required'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="lastnametwo?.errors?.pattern">
+                    {{'validation.lastnametwo.invalid'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="lastnametwo?.errors?.minlength">
+                    {{'validation.lastnametwo.invalid_min'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="lastnametwo?.errors?.maxlength">
+                    {{'validation.lastnametwo.invalid_max'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <div nz-row [nzGutter]="24">
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+            <nz-form-label [nzNoColon]="true" nzRequired nzFor="userName">
+              {{'validation.user.label'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplUserName" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    type="text"
+                    nz-input
+                    formControlName="userName"
+                    placeholder="{{'validation.user.placeholder'|translate}}"
+                    required
+                  />
+                </nz-input-group>
+                <ng-template #TplUserName let-control>
+                  <ng-container *ngIf="userName?.errors?.required">
+                    {{'validation.user.required'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="userName?.errors?.pattern">
+                    {{'validation.user.invalid'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="userName?.errors?.minlength">
+                    {{'validation.user.invalid_min'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="userName?.errors?.maxlength">
+                    {{'validation.user.invalid_max'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="userName?.errors?.asyncuservalidator">
+                    {{'validation.user.present-BD'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="12">
+            <nz-form-label nzRequired [nzNoColon]="true" nzFor="email">
+              {{'validation.email.label'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplEmail" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    nz-input
+                    formControlName="email"
+                    type="email"
+                    placeholder="{{'validation.email.placeholder'|translate}}"
+                    required
+                  />
+                </nz-input-group>
+                <ng-template #TplEmail let-control>
+                  <ng-container *ngIf="email?.errors?.required">
+                    {{'validation.email.required'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="email?.errors?.pattern">
+                    {{'validation.email.wrong-format'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="email?.errors?.asyncemailvalidator">
+                    {{'validation.email.present-BD'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <nz-form-item nz-row class="register-area">
+          <nz-form-control>
+            <button
+              nz-button
+              nzType="primary"
+              [nzLoading]="loading_date_button"
+              type="submit"
+              [disabled]="date.invalid"
+            >
+              {{'button.send'|translate}}
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+      <nz-divider nzDashed [nzText]="text_segurity">
+        <ng-template #text_segurity
+          >{{'card.title-edit-password'|translate}}</ng-template
+        >
+      </nz-divider>
+      <form nz-form [formGroup]="segurity" (ngSubmit)="sendPassword()">
+        <div nz-row [nzGutter]="24">
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+            <nz-form-label [nzNoColon]="true" nzRequired nzFor="password"
+              >{{'validation.password.label-old'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplPassword" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    type="password"
+                    nz-input
+                    formControlName="password_old"
+                    placeholder="{{'validation.password.placeholder'|translate}}"
+                    required
+                  />
+                </nz-input-group>
+                <ng-template #TplPassword let-control>
+                  <ng-container *ngIf="password_old?.errors?.required">
+                    {{'validation.password.required'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+            <nz-form-label [nzNoColon]="true" nzRequired nzFor="password"
+              >{{'validation.password.label-new'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplPassword" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    type="password"
+                    nz-input
+                    formControlName="password"
+                    placeholder="{{'validation.password.placeholder'|translate}}"
+                    required
+                    nz-popover
+                    nzPopoverPlacement="right"
+                    nzPopoverTrigger="focus"
+                    nzPopoverOverlayClassName="register-password-cdk"
+                    [nzPopoverOverlayStyle]="{ 'width.px': 240 }"
+                    [nzPopoverContent]="pwdCdkTpl"
+                  />
+                </nz-input-group>
+                <ng-template #pwdCdkTpl>
+                  <div style="padding: 4px 0">
+                    <ng-container [ngSwitch]="status">
+                      <div *ngSwitchCase="'ok'" class="success">
+                        {{ 'validation.password.strength.strong' | translate }}
+                      </div>
+                      <div *ngSwitchCase="'pass'" class="info">
+                        {{ 'validation.password.strength.medium' | translate }}
+                      </div>
+                      <div *ngSwitchDefault class="error">
+                        {{ 'validation.password.strength.short' | translate }}
+                      </div>
+                    </ng-container>
+                    <div class="progress-{{ status }}">
+                      <nz-progress
+                        [nzPercent]="progress_password"
+                        [nzStatus]="passwordProgressMap[status]"
+                        [nzStrokeWidth]="6"
+                        [nzShowInfo]="false"
+                      ></nz-progress>
+                    </div>
+                    <p class="mt-sm">
+                      {{ 'validation.password.strength.msg' | translate }}
+                    </p>
+                  </div>
+                </ng-template>
+                <ng-template #TplPassword let-control>
+                  <ng-container *ngIf="password?.errors?.required">
+                    {{'validation.password.required'|translate}}
+                  </ng-container>
+                  <ng-container *ngIf="password?.errors?.minlength">
+                    {{'validation.password.required'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+            <nz-form-label [nzNoColon]="true" nzRequired nzFor="password_ref">
+              {{'validation.password.label-rep'|translate}}
+            </nz-form-label>
+            <nz-form-item>
+              <nz-form-control [nzErrorTip]="TplPassword_ref" nzHasFeedback>
+                <nz-input-group>
+                  <input
+                    nz-input
+                    formControlName="password_rep"
+                    type="password"
+                    placeholder="{{'validation.password.placeholder'|translate}}"
+                  />
+                </nz-input-group>
+                <ng-template #TplPassword_ref let-control>
+                  <ng-container *ngIf="password_rep?.errors?.required">
+                    {{'validation.password.required'|translate}}
+                  </ng-container>
+                  <ng-container
+                    *ngIf="password_rep?.errors?.password_equalsvalidator"
+                  >
+                    {{'validation.password.twice'|translate}}
+                  </ng-container>
+                </ng-template>
+              </nz-form-control>
+            </nz-form-item>
+          </div>
+        </div>
+        <nz-form-item nz-row class="register-area">
+          <nz-form-control>
+            <button
+              nz-button
+              nzType="primary"
+              [nzLoading]="loading_password_button"
+              type="submit"
+              [disabled]="segurity.invalid"
+            >
+              {{'button.send'|translate}}
+            </button>
+          </nz-form-control>
+        </nz-form-item>
+      </form>
+    </nz-card>
+  </div>
+</div>

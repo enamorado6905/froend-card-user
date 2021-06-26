@@ -1,0 +1,72 @@
+<form nz-form [formGroup]="_signIn" class="login-form" (ngSubmit)="signIn()">
+  <nz-form-item class="login-form-item">
+    <nz-form-control class="login-form-control" [nzErrorTip]="TplUserName">
+      <nz-input-group class="login-input-group" [nzPrefix]="prefixTemplateUser">
+        <input
+          class="login-field"
+          id="login-user"
+          type="text"
+          nz-input
+          formControlName="userName"
+          placeholder="{{ 'validation.user.placeholder' | translate }}"
+          required
+          autofocus
+        />
+        <label class="login-field-icon fui-user" for="login-user"></label>
+      </nz-input-group>
+      <ng-template #prefixTemplateUser
+        ><i nz-icon nzType="user"></i
+      ></ng-template>
+      <ng-template #TplUserName let-control>
+        <ng-container *ngIf="userName?.errors?.required">{{
+          "validation.user.required" | translate
+        }}</ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item class="login-form-item">
+    <nz-form-control class="login-form-control" [nzErrorTip]="TplPassword">
+      <nz-input-group
+        class="login-input-group"
+        [nzSuffix]="suffixTemplateEyes"
+        [nzPrefix]="prefixTemplateLock"
+      >
+        <input
+          class="login-field"
+          id="login-pass"
+          nz-input
+          formControlName="password"
+          placeholder="{{ 'validation.password.placeholder' | translate }}"
+          [type]="passwordVisible ? 'text' : 'password'"
+          nz-input
+          required
+        />
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+      </nz-input-group>
+      <ng-template #prefixTemplateLock
+        ><i nz-icon nzType="lock"></i
+      ></ng-template>
+      <ng-template #suffixTemplateEyes>
+        <i
+          nz-icon
+          [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+          (click)="passwordVisible = !passwordVisible"
+        ></i>
+      </ng-template>
+      <ng-template #TplPassword let-control>
+        <ng-container *ngIf="password?.errors?.required"
+          >{{ "validation.password.required" | translate }}
+        </ng-container>
+      </ng-template>
+    </nz-form-control>
+  </nz-form-item>
+  <button
+    class="login-button"
+    nz-button
+    [nzLoading]="isLoading"
+    type="submit"
+    [disabled]="_signIn.invalid"
+  >
+    {{ "login.login" | translate }}
+  </button>
+</form>

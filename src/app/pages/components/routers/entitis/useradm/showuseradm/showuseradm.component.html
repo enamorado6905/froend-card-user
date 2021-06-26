@@ -1,0 +1,102 @@
+<nz-drawer
+  [nzMaskClosable]="nzZorro.maskClosableDrawer"
+  [nzVisible]="comuADM.openOperation"
+  nzPlacement="right"
+  [nzTitle]="'app-content.label.show-date' | translate"
+  (nzOnClose)="destroy()"
+  [nzWidth]="nzZorro.nzWidthDrawer"
+>
+  <ng-container *nzDrawerContent>
+    <div class="drawer-info-user">
+      <div class="author-avatar" (click)="showImg()">
+        <figure class="content-avatar">
+          <app-avatar
+            id="avatar"
+            class="avatar"
+            [url]="userAdm?.idimgData!"
+          ></app-avatar>
+        </figure>
+      </div>
+      <div class="author-date">
+        <nz-skeleton
+          [nzLoading]="loadingDate"
+          [nzActive]="true"
+          [nzParagraph]="{ rows: 4 }"
+        >
+          <nz-descriptions
+            [nzColumn]="nzZorro.nzColumn"
+            [nzTitle]="'app-content.label.person' | translate"
+          >
+            <nz-descriptions-item
+              [nzTitle]="'validation.name.label' | translate"
+              [nzSpan]="1"
+              >{{ userAdm?.name! }} {{ userAdm?.nametwo }}
+              {{ userAdm?.lastnameone }}
+              {{ userAdm?.lastnametwo }}</nz-descriptions-item
+            >
+            <nz-descriptions-item
+              [nzTitle]="'validation.user.label' | translate"
+              [nzSpan]="1"
+              >{{ userAdm?.user }}</nz-descriptions-item
+            >
+          </nz-descriptions>
+        </nz-skeleton>
+        <nz-divider></nz-divider>
+        <nz-skeleton
+          [nzLoading]="loadingDate"
+          [nzActive]="true"
+          [nzParagraph]="{ rows: 2 }"
+        >
+          <nz-descriptions
+            [nzColumn]="nzZorro.nzColumn"
+            [nzTitle]="'app-content.label.contacts' | translate"
+          >
+            <nz-descriptions-item nzTitle="Email" [nzSpan]="1">{{
+              userAdm?.email!
+            }}</nz-descriptions-item>
+          </nz-descriptions>
+        </nz-skeleton>
+        <nz-divider></nz-divider>
+        <nz-skeleton
+          [nzLoading]="loadingDate"
+          [nzActive]="true"
+          [nzParagraph]="{ rows: 2 }"
+        >
+          <nz-descriptions
+            [nzColumn]="nzZorro.nzColumn"
+            [nzTitle]="'app-content.label.status' | translate"
+          >
+            <nz-descriptions-item
+              [nzTitle]="'app-content.label.created' | translate"
+              [nzSpan]="1"
+              >{{ userAdm?.createdAt! | date }}</nz-descriptions-item
+            >
+            <nz-descriptions-item
+              [nzTitle]="'app-content.label.update' | translate"
+              [nzSpan]="1"
+              >{{ userAdm?.updatedAt! | date }}</nz-descriptions-item
+            >
+          </nz-descriptions>
+        </nz-skeleton>
+        <nz-divider></nz-divider>
+        <nz-skeleton
+          [nzLoading]="loadingDate"
+          [nzActive]="true"
+          [nzParagraph]="{ rows: 2 }"
+        >
+          <nz-descriptions
+            [nzColumn]="nzZorro.nzColumn"
+            [nzTitle]="'app-content.label.roles-permissions' | translate"
+          >
+            <nz-descriptions-item
+              [nzTitle]="'app-content.label.rol' | translate"
+              [nzSpan]="1"
+            >
+              <nz-tag [nzColor]="'#2db7f5'">{{ userAdm?.rol?.name! }} </nz-tag>
+            </nz-descriptions-item>
+          </nz-descriptions>
+        </nz-skeleton>
+      </div>
+    </div>
+  </ng-container>
+</nz-drawer>
