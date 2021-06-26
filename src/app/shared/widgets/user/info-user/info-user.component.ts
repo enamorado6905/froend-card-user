@@ -2,8 +2,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { UserADMCOMService } from 'src/app/pages/service/comunication/userADM.service';
 import { VerifyTokenService } from 'src/app/pages/service/configuration/auth/verify_token.service';
 import { NZConfZorroService } from 'src/app/core/ng-zorro/nz-conf-zorro.service';
-import { UserADMService } from 'src/app/pages/service/entitis/userADM.service';
-import { UserADM } from 'src/app/pages/interfaces/entitis/userADM.interface';
+import { UserService } from 'src/app/pages/service/entitis/user.service';
+import { User } from 'src/app/pages/interfaces/entitis/user.interface';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -49,12 +49,12 @@ import { Subscription } from 'rxjs';
 export class InfoUserComponent implements OnInit, OnDestroy {
   public clientesSubscription: Array<Subscription> = [];
   public loadingInfo = true;
-  public user: UserADM | undefined;
+  public user: User | undefined;
   constructor(
     public NZConf: NZConfZorroService,
     public verifyToken: VerifyTokenService,
     public userADMCOM: UserADMCOMService,
-    private userADM: UserADMService
+    private userService: UserService
   ) {}
   ngOnDestroy(): void {
     this.clientesSubscription.forEach((m) => m.unsubscribe());
@@ -65,8 +65,8 @@ export class InfoUserComponent implements OnInit, OnDestroy {
   infoUser(): void {
     const ID = localStorage.getItem('ID');
     if (ID) {
-      const subscribe = this.userADM.GET_ADM(ID).subscribe(
-        (res: UserADM) => {
+      const subscribe = this.userService.GET_USER(ID).subscribe(
+        (res: User) => {
           this.user = res;
           this.loadingInfo = false;
         },

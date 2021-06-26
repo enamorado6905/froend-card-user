@@ -10,7 +10,7 @@ export class UserService {
   uri = 'api/USER/';
   constructor(private http: HttpClient) {}
 
-  // #region Crup ADM
+  // #region Crup USER
   ADD_USER(
     name: string,
     nametwo: string,
@@ -34,7 +34,7 @@ export class UserService {
       fd
     );
   }
-  GET_ADMS(limit: number, max: number): Observable<User[]> {
+  GET_USERS(limit: number, max: number): Observable<User[]> {
     const params = new HttpParams()
       .set('limit', `${limit}`)
       .set('max', `${max}`);
@@ -42,45 +42,45 @@ export class UserService {
       params,
     });
   }
-  GET_ADM(_id: string): Observable<User> {
+  GET_USER(_id: string): Observable<User> {
     return this.http.get<User>(
       environment.CONTACT_URL + this.uri + 'users/' + _id
     );
   }
-  GET_ADM_DELETE(id: string): Observable<User> {
+  GET_USER_DELETE(id: string): Observable<User> {
     return this.http.get<User>(
       environment.CONTACT_URL + this.uri + 'getdatedelete' + '/' + id
     );
   }
-  GET_ADM_DELETES(ids: Set<string>): Observable<User[]> {
+  GET_USER_DELETES(ids: Set<string>): Observable<User[]> {
     const fd = { ids };
     return this.http.post<User[]>(
       environment.CONTACT_URL + this.uri + 'getdatedeletes',
       fd
     );
   }
-  GET_ADM_token(): Observable<User> {
+  GET_USER_token(): Observable<User> {
     const fd = { authtoken: localStorage.getItem('token') };
     return this.http.post<User>(
       environment.CONTACT_URL + this.uri + 'user/token',
       fd
     );
   }
-  DELETE_ADM(ids: string[]): Observable<IAlert> {
+  DELETE_USER(ids: string[]): Observable<IAlert> {
     const fd = { ids };
     return this.http.post<IAlert>(
       environment.CONTACT_URL + this.uri + 'deleteuser',
       fd
     );
   }
-  EDIT_ADM(_id: string, name: string, user: string): Observable<IAlert> {
+  EDIT_USER(_id: string, name: string, user: string): Observable<IAlert> {
     const fd = { _id, name, user };
     return this.http.patch<IAlert>(
       environment.CONTACT_URL + this.uri + 'user',
       fd
     );
   }
-  EDIT_PASSWORD_ADM(
+  EDIT_PASSWORD_USER(
     id: string,
     password_old: string,
     password_new: string
@@ -91,14 +91,14 @@ export class UserService {
       fd
     );
   }
-  EDIT_ROL_ADM(id: string, rol: string): Observable<IAlert> {
+  EDIT_ROL_USER(id: string, rol: string): Observable<IAlert> {
     const fd = { rol };
     return this.http.patch<IAlert>(
       environment.CONTACT_URL + this.uri + 'editrol/' + id,
       fd
     );
   }
-  EDIT_PERMISSIONS_ADM(id: string, permissions: string): Observable<IAlert> {
+  EDIT_PERMISSIONS_USER(id: string, permissions: string): Observable<IAlert> {
     const fd = { permissions };
     return this.http.patch<IAlert>(
       environment.CONTACT_URL + this.uri + 'editpermissions/' + id,
