@@ -11,6 +11,7 @@ import { NavSettingModule } from '../widgets/system/nav-setting/nav-setting.modu
 import { NavLanguageModule } from '../widgets/system/nav-language/nav-language.module';
 import { IconsProviderModule } from '../../icons-provider.module';
 import { TabBlockSeccionModule } from '../widgets/system/tab-block-seccion/tab-block-seccion.module';
+import { InfoUserModule } from '../widgets/user/info-user/info-user.module';
 import { AppNavbarComponent } from './app-navbar.component';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { AppNavbarComponent } from './app-navbar.component';
     TabBlockSeccionModule,
     NzToolTipModule,
     TranslateModule,
+    InfoUserModule,
   ],
 })
 export class AppNavbarModule {}

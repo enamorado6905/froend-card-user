@@ -21,24 +21,31 @@
   <div class="logo">
     <div class="item">
       <a target="_blank">
-        <img src="../../../assets/icons/icon-128x128.png" alt="logo">
+        <img src="../../../assets/icons/icon-128x128.png" alt="logo" />
       </a>
     </div>
   </div>
   <div class="setting-rigth">
     <div class="items-setting">
       <div class="item">
-        <app-tab-block-seccion nzTooltipTitle="{{'app-nav.icon-name.tab-block-seccion' | translate}}"
-          nzTooltipPlacement="bottom" nz-tooltip>
+        <app-tab-block-seccion
+          nzTooltipTitle="{{
+            'app-nav.icon-name.tab-block-seccion' | translate
+          }}"
+          nzTooltipPlacement="bottom"
+          nz-tooltip
+        >
         </app-tab-block-seccion>
       </div>
       <div class="item">
-        <app-tab-themes nzTooltipTitle="{{'app-nav.icon-name.tab-themes' | translate}}" nzTooltipPlacement="bottom"
-          nz-tooltip></app-tab-themes>
+        <app-tab-themes
+          nzTooltipTitle="{{ 'app-nav.icon-name.tab-themes' | translate }}"
+          nzTooltipPlacement="bottom"
+          nz-tooltip
+        ></app-tab-themes>
       </div>
       <div class="item">
-        <app-tab-sidebar nzTooltipTitle="{{'app-nav.icon-name.tab-sidebar' | translate}}" nzTooltipPlacement="bottom"
-          nz-tooltip></app-tab-sidebar>
+        <app-nav-language></app-nav-language>
       </div>
     </div>
   </div>
@@ -51,21 +58,8 @@
     <div class="items-setting">
       <div class="item">
         <div class="trigger-item">
-          <i nz-icon nzType="github" nzTheme="outline"></i>
+          <app-info-user></app-info-user>
         </div>
-      </div>
-      <div class="item">
-        <div class="trigger-item">
-          <i nz-icon nzType="message" nzTheme="outline"></i>
-        </div>
-      </div>
-      <div class="item">
-        <div class="trigger-item">
-          <i nz-icon nzType="notification" nzTheme="outline"></i>
-        </div>
-      </div>
-      <div class="item">
-        <app-nav-language></app-nav-language>
       </div>
     </div>
   </div>
