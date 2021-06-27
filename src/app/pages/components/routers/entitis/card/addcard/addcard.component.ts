@@ -24,9 +24,6 @@ export class AddcardComponent implements OnInit {
   get amount(): AbstractControl | null {
     return this.date.get('amount');
   }
-  get email(): AbstractControl | null {
-    return this.date.get('email');
-  }
   public isVisible = false;
   @ViewChild(StripeCardComponent) card!: StripeCardComponent;
   cardOptions: StripeCardElementOptions = {
@@ -66,8 +63,7 @@ export class AddcardComponent implements OnInit {
     if (this.date.valid) {
       this.cardService
         .PaymentIntent(
-          this.email?.value,
-          this.amount?.value,
+                 this.amount?.value,
           localStorage?.getItem('ID')!,
           this.id
         )
@@ -77,7 +73,7 @@ export class AddcardComponent implements OnInit {
               payment_method: {
                 card: this.card.element,
                 billing_details: {
-                  name: this.email?.value,
+                 
                 },
               },
             })

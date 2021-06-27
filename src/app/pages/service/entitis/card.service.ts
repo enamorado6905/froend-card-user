@@ -80,13 +80,11 @@ export class CardService {
   // #endregion
 
   PaymentIntent(
-    email: string,
     price: any,
     user: string,
     card: string
   ): Observable<PaymentIntent> {
     const formData = {
-      email,
       price,
       user,
       card,
