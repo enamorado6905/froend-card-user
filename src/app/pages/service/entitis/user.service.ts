@@ -81,13 +81,13 @@ export class UserService {
     );
   }
   EDIT_PASSWORD_USER(
-    id: string,
+    _id: string,
     password_old: string,
     password_new: string
   ): Observable<IAlert> {
-    const fd = { password_old, password_new };
-    return this.http.put<IAlert>(
-      environment.CONTACT_URL + this.uri + 'editpasword/' + id,
+    const fd = { _id, password_old, password_new };
+    return this.http.patch<IAlert>(
+      environment.CONTACT_URL + this.uri + 'editpassword',
       fd
     );
   }

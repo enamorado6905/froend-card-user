@@ -11,7 +11,6 @@ export const UserinLayoutRoutes: Routes = [
   {
     path: 'informacion/usuario',
     component: InfoUserComponent,
-    canActivate: [NgxPermissionsGuard],
   },
   /*  {
     path: 'gestion',
