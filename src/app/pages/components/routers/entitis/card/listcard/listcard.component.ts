@@ -17,6 +17,11 @@ export class ListcardComponent implements OnInit, OnDestroy {
   public issearchValue = false;
   public visible = false;
 
+  hGutter = 16;
+  vGutter = 16;
+  count = 10;
+  array = new Array(this.count);
+
   constructor(
     public comuCard: CardCOMService,
     public listEntitis: ListEntitisService,

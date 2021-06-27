@@ -1,67 +1,19 @@
-<nz-drawer
-  [nzMaskClosable]="nzZorro.maskClosableDrawer"
-  [nzVisible]="comuCard.openOperation"
-  nzPlacement="right"
-  [nzTitle]="'app-content.label.show-date' | translate"
-  (nzOnClose)="destroy()"
-  [nzWidth]="nzZorro.nzWidthDrawer"
+<nz-card
+  nzHoverable
+  [nzCover]="coverTemplate"
+  [nzActions]="[actionPay, actionShow]"
 >
-  <ng-container *nzDrawerContent>
-    <div class="drawer-info-user">
-      <div class="author-avatar" (click)="showImg()">
-        <figure class="content-avatar">
-          <app-avatar
-            id="avatar"
-            class="avatar"
-            [url]="card?.idimgData!"
-          ></app-avatar>
-        </figure>
-      </div>
-      <div class="author-date">
-        <nz-skeleton
-          [nzLoading]="loadingDate"
-          [nzActive]="true"
-          [nzParagraph]="{ rows: 4 }"
-        >
-          <nz-descriptions
-            [nzColumn]="nzZorro.nzColumn"
-            [nzTitle]="'app-content.label.person' | translate"
-          >
-            <nz-descriptions-item
-              [nzTitle]="'validation.type.label' | translate"
-              [nzSpan]="1"
-              >{{ card?.type! }}
-            </nz-descriptions-item>
-            <nz-descriptions-item
-              [nzTitle]="'validation.price.label' | translate"
-              [nzSpan]="1"
-              >{{ card?.price }}</nz-descriptions-item
-            >
-          </nz-descriptions>
-        </nz-skeleton>
-        <nz-divider></nz-divider>
-        <nz-skeleton
-          [nzLoading]="loadingDate"
-          [nzActive]="true"
-          [nzParagraph]="{ rows: 2 }"
-        >
-          <nz-descriptions
-            [nzColumn]="nzZorro.nzColumn"
-            [nzTitle]="'app-content.label.status' | translate"
-          >
-            <nz-descriptions-item
-              [nzTitle]="'app-content.label.created' | translate"
-              [nzSpan]="1"
-              >{{ card?.createdAt! | date }}</nz-descriptions-item
-            >
-            <nz-descriptions-item
-              [nzTitle]="'app-content.label.update' | translate"
-              [nzSpan]="1"
-              >{{ card?.updatedAt! | date }}</nz-descriptions-item
-            >
-          </nz-descriptions>
-        </nz-skeleton>
-      </div>
-    </div>
-  </ng-container>
-</nz-drawer>
+  <nz-card-meta
+    [nzTitle]="card?.type!"
+    [nzDescription]="card?.price!.toString()"
+  ></nz-card-meta>
+</nz-card>
+<ng-template #coverTemplate>
+  <app-avatar [url]="card?.idimgData!"></app-avatar>
+</ng-template>
+<ng-template #actionPay>
+  <app-addcard [id]="card?._id"></app-addcard>
+</ng-template>
+<ng-template #actionShow>
+  <i nz-icon nzType="ellipsis"></i>
+</ng-template>

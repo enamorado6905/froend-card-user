@@ -1,4 +1,4 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { NzImageService } from 'ng-zorro-antd/image';
 import { Subscription } from 'rxjs';
 import { NZConfZorroService } from 'src/app/core/ng-zorro/nz-conf-zorro.service';
@@ -15,6 +15,14 @@ export class ShowcardComponent implements OnInit, OnDestroy {
   public clientesSubscription: Array<Subscription> = [];
   public card: Card | undefined;
   public loadingDate = false;
+  private ID: any;
+  @Input('id') set id(id: string) {
+    if (id) {
+      this.getDate(id);
+    }
+  }
+ cardCaptureReady = false
+
   constructor(
     private cardService: CardService,
     public comuCard: CardCOMService,
@@ -29,25 +37,22 @@ export class ShowcardComponent implements OnInit, OnDestroy {
     this.clientesSubscription.forEach((sub: any) => sub.unsubscribe());
     this.comuCard.openListDate();
   }
-  ngOnInit(): void {
-    this.getDate();
-  }
-  getDate(): void {
+  ngOnInit(): void {}
+  getDate(id: string): void {
     this.loadingDate = true;
-    if (!this.comuCard.IDManageList) {
-      return this.ngOnDestroy();
+    if (!id) {
+      console.log(id);
+      //return this.ngOnDestroy();
     }
-    const subscribe = this.cardService
-      .GET_CARD(this.comuCard.IDManageList)
-      .subscribe(
-        (res: Card) => {
-          this.card = res;
-          this.loadingDate = false;
-        },
-        () => {
-          this.destroy();
-        }
-      );
+    const subscribe = this.cardService.GET_CARD(id).subscribe(
+      (res: Card) => {
+        this.card = res;
+        this.loadingDate = false;
+      },
+      () => {
+        this.destroy();
+      }
+    );
     this.clientesSubscription.push(subscribe);
   }
   showImg(): void {
@@ -67,4 +72,4 @@ export class ShowcardComponent implements OnInit, OnDestroy {
     ];
     this.nzImageService.preview(images, { nzZoom: 1.5, nzRotate: 0 });
   }
-}
+ }

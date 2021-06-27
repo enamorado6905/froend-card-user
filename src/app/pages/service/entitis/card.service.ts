@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { IAlert } from 'src/app/pages/interfaces/component/alert';
 import { Card } from '../../interfaces/entitis/card.interface';
 import { environment } from 'src/environments/environment';
+import { PaymentIntent } from '@stripe/stripe-js';
 
 @Injectable({ providedIn: 'root' })
 export class CardService {
@@ -77,6 +78,24 @@ export class CardService {
     );
   }
   // #endregion
+
+  PaymentIntent(
+    email: string,
+    price: any,
+    user: string,
+    card: string
+  ): Observable<PaymentIntent> {
+    const formData = {
+      email,
+      price,
+      user,
+      card,
+    };
+    return this.http.post<PaymentIntent>(
+      environment.CONTACT_URL + 'api/PRICE/price',
+      formData
+    );
+  }
 
   //#region VALIDATORS
   VALIDATORS_CARD_ADD(card: string): Observable<boolean> {

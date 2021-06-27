@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { NgxStripeModule } from 'ngx-stripe';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { NGZORROModule } from 'src/app/core/ng-zorro/ng-zorro.module';
@@ -34,6 +35,9 @@ import { AuthCardRoutes } from './card.routing';
   imports: [
     CommonModule,
     RouterModule.forChild(AuthCardRoutes),
+    NgxStripeModule.forRoot(
+      'pk_test_51J3NjsD1bGARjoEn7vUlPlapdNgt0Clk8A5B4ZzFPm4lLY06QiKp5s2HWaVD2mP8S3conwqi8c33CvmqedYFiOES00lzuaOUGl'
+    ),
     NGZORROModule,
     FormsModule,
     AvatarModule,

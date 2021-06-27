@@ -1,145 +1,48 @@
-<div nz-row class="pt-lg">
-  <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-    <nz-card class="card-user">
-      <form nz-form [formGroup]="date" (ngSubmit)="sendDate()">
-        <div nz-row [nzGutter]="24">
-          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8">
-            <nz-form-label [nzNoColon]="true" nzRequired nzFor="type"
-              >{{ "validation.type.label" | translate }}
-            </nz-form-label>
-            <nz-form-item>
-              <nz-form-control [nzErrorTip]="TplType" nzHasFeedback>
-                <nz-input-group>
-                  <input
-                    type="text"
-                    nz-input
-                    formControlName="type"
-                    placeholder="{{
-                      'validation.type.placeholder' | translate
-                    }}"
-                    required
-                    autofocus
-                  />
-                </nz-input-group>
-                <ng-template #TplType let-control>
-                  <ng-container *ngIf="type?.errors?.required">
-                    {{ "validation.type.required" | translate }}
-                  </ng-container>
-                  <ng-container *ngIf="type?.errors?.pattern">
-                    {{ "validation.type.invalid" | translate }}
-                  </ng-container>
-                  <ng-container *ngIf="type?.errors?.minlength">
-                    {{ "validation.type.invalid_min" | translate }}
-                  </ng-container>
-                  <ng-container *ngIf="type?.errors?.maxlength">
-                    {{ "validation.type.invalid_max" | translate }}
-                  </ng-container>
-                </ng-template>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8">
-            <nz-form-label [nzNoColon]="true" nzFor="price"
-              >{{ "validation.price.label" | translate }}
-            </nz-form-label>
-            <nz-form-item>
-              <nz-form-control [nzErrorTip]="TplPrice" nzHasFeedback>
-                <nz-input-group>
-                  <input
-                    nz-input
-                    formControlName="price"
-                    type="number"
-                    placeholder="{{
-                      'validation.price.placeholder' | translate
-                    }}"
-                  />
-                </nz-input-group>
-                <ng-template #TplPrice let-control>
-                  <ng-container *ngIf="price?.errors?.required">
-                    {{ "validation.price.invalid" | translate }}
-                  </ng-container>
-                </ng-template>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="8">
-            <nz-form-label [nzNoColon]="true" nzFor="allcard"
-              >{{ "validation.allcard.label" | translate }}
-            </nz-form-label>
-            <nz-form-item>
-              <nz-form-control [nzErrorTip]="TplAllCard" nzHasFeedback>
-                <nz-input-group>
-                  <input
-                    nz-input
-                    formControlName="allcard"
-                    type="number"
-                    placeholder="{{
-                      'validation.allcard.placeholder' | translate
-                    }}"
-                  />
-                </nz-input-group>
-                <ng-template #TplAllCard let-control>
-                  <ng-container *ngIf="allcard?.errors?.required">
-                    {{ "validation.allcard.invalid" | translate }}
-                  </ng-container>
-                </ng-template>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-        </div>
-        <div nz-row [nzGutter]="24">
-          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-            <app-load-photo (photo)="getPhoto($event)"></app-load-photo>
-          </div>
-        </div>
-        <div nz-row [nzGutter]="24">
-          <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
-            <nz-form-label [nzNoColon]="true" nzRequired nzFor="descripcion"
-              >{{ "validation.description.label" | translate }}
-            </nz-form-label>
-            <nz-form-item>
-              <nz-form-control [nzErrorTip]="TplDescription" nzHasFeedback>
-                <nz-input-group>
-                  <textarea
-                    nz-input
-                    rows="2"
-                    formControlName="descripcion"
-                    placeholder="{{
-                      'validation.description.placeholder' | translate
-                    }}"
-                    required
-                    autofocus
-                  ></textarea>
-                </nz-input-group>
-                <ng-template #TplDescription let-control>
-                  <ng-container *ngIf="descripcion?.errors?.required">
-                    {{ "validation.description.required" | translate }}
-                  </ng-container>
-                  <ng-container *ngIf="descripcion?.errors?.minlength">
-                    {{ "validation.description.invalid_min" | translate }}
-                  </ng-container>
-                  <ng-container *ngIf="descripcion?.errors?.maxlength">
-                    {{ "validation.description.invalid_max" | translate }}
-                  </ng-container>
-                </ng-template>
-              </nz-form-control>
-            </nz-form-item>
-          </div>
-        </div>
-        <nz-form-item nz-row class="register-area">
-          <nz-form-control>
-            <button
-              nz-button
-              nzType="primary"
-              [nzLoading]="initLoading"
-              type="submit"
-              [disabled]="date.invalid"
-            >
-              {{ "button.send" | translate }}
-            </button>
-          </nz-form-control>
-        </nz-form-item>
-      </form>
-    </nz-card>
-  </div>
+<div (click)="showModal()">
+  <i nz-icon nzType="dollar" nzTheme="outline"></i>
 </div>
+<nz-modal
+  [(nzVisible)]="isVisible"
+  nzTitle="The first Modal"
+  (nzOnCancel)="handleCancel()"
+  (nzOnOk)="handleOk()"
+>
+  <ng-container *nzModalContent>
+    <form nz-form [formGroup]="date" (ngSubmit)="handleOk()">
+      <div nz-row [nzGutter]="24">
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+          <nz-form-label [nzNoColon]="true" nzRequired nzFor="amount"
+            >{{ "validation.allcard.label" | translate }}
+          </nz-form-label>
+          <nz-form-item>
+            <nz-form-control [nzErrorTip]="TplType" nzHasFeedback>
+              <nz-input-group>
+                <input
+                  type="number"
+                  nz-input
+                  formControlName="amount"
+                  placeholder="{{
+                    'validation.allcard.placeholder' | translate
+                  }}"
+                  required
+                  autofocus
+                />
+              </nz-input-group>
+              <ng-template #TplType let-control>
+                <ng-container *ngIf="amount?.errors?.required">
+                  {{ "validation.allcard.required" | translate }}
+                </ng-container>
+              </ng-template>
+            </nz-form-control>
+          </nz-form-item>
+        </div>
+        <div nz-col nzXs="24" nzSm="24" nzMd="24" nzLg="24">
+          <ngx-stripe-card
+            [options]="cardOptions"
+            [elementsOptions]="elementsOptions"
+          ></ngx-stripe-card>
+        </div>
+      </div>
+    </form>
+  </ng-container>
+</nz-modal>

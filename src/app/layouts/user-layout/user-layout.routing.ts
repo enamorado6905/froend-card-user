@@ -12,32 +12,18 @@ export const UserinLayoutRoutes: Routes = [
     path: 'informacion/usuario',
     component: InfoUserComponent,
   },
-  /*  {
-    path: 'gestion',
+  {
+    path: '',
     // canActivateChild: null,
     children: [
       { path: '', pathMatch: 'full' },
       {
-        path: 'adm',
-        loadChildren: () =>
-          import(
-            'src/app/pages/components/routers/entitis/useradm/useradm.module'
-          ).then((m) => m.UseradmModule),
-      },
-      {
-        path: 'usuario',
-        loadChildren: () =>
-          import(
-            'src/app/pages/components/routers/entitis/user/user.module'
-          ).then((m) => m.UserModule),
-      },
-      {
-        path: 'carro',
+        path: 'carros',
         loadChildren: () =>
           import(
             'src/app/pages/components/routers/entitis/card/card.module'
           ).then((m) => m.CardModule),
       },
     ],
-  },*/
+  },
 ];
